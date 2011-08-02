@@ -1,3 +1,9 @@
+statsd (0.0.2) unstable; urgency=low
+
+  * extend start wrapper to support /etc/default/statsd
+
+ -- Al Tobey <al@ooyala.com>  Tue, 02 Aug 2011 23:40:17 +0000
+
 statsd (0.0.1) unstable; urgency=low
 
   * Initial rdio packaging.
