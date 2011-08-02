@@ -15,7 +15,7 @@ script
     . /etc/default/statsd
   fi
 
-  exec sudo -u $USER /usr/bin/nodejs /usr/share/statsd/stats.js $CONFIG 2>&1 >>$LOGFILE
+  exec sudo -u $USER /usr/bin/node /usr/share/statsd/stats.js $CONFIG 2>&1 >>$LOGFILE
 
 end script
 
