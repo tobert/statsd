@@ -4,9 +4,18 @@ author      "rdio"
 start on startup
 stop on shutdown
 
-script
-    # We found $HOME is needed. Without it, we ran into problems
-    export HOME="/root"
+env HOME=/
+env CONFIG=/etc/statsd/config.js
+env LOGFILE=/tmp/statsd.log
+env USER=nobody
 
-    exec sudo -u fabric /usr/share/statsd/scripts/start
+script
+
+  if [ -e "/etc/default/statsd" ] ; then
+    . /etc/default/statsd
+  fi
+
+  exec sudo -u $USER /usr/bin/nodejs /usr/share/statsd/stats.js $CONFIG 2>&1 >>$LOGFILE
+
 end script
+
